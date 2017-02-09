@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>ontology-core-tests</artifactId>
+  <packaging>jar</packaging>
+  
+  <name>Ontology Core Tests</name>
+  
+  <parent>
+    <groupId>au.csiro</groupId>
+    <artifactId>snorocket-extended-tests</artifactId>
+    <version>2.8.0-SNAPSHOT</version>
+    <relativePath>..</relativePath>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>au.csiro</groupId>
+      <artifactId>ontology-model</artifactId>
+      <version>${ontology-core.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>au.csiro</groupId>
+      <artifactId>ontology-import</artifactId>
+      <version>${ontology-core.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>au.csiro</groupId>
+      <artifactId>snomed-int-rf1</artifactId>
+      <version>20110731</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>au.csiro</groupId>
+      <artifactId>snomed-int-rf2</artifactId>
+      <version>20130131</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>au.csiro</groupId>
+      <artifactId>amtv3</artifactId>
+      <version>20130901</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+</project>
