@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>au.csiro</groupId>
   <artifactId>snorocket-extended-tests</artifactId>
-  <version>2.9.0-SNAPSHOT</version>
+  <version>3.2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Snorocket Extended Tests</name>
@@ -41,7 +41,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-     <ontology-core.version>2.10.0</ontology-core.version>
+     <ontology-core.version>3.1.2-SNAPSHOT</ontology-core.version>
      <snorocket.version>${project.version}</snorocket.version>
   </properties>
 
@@ -72,13 +72,13 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.0</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
-      <version>1.2.16</version>
+      <version>1.2.17</version>
     </dependency>
   </dependencies>
 

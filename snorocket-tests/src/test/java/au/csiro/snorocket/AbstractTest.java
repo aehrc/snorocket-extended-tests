@@ -6,6 +6,7 @@ package au.csiro.snorocket;
 
 import static org.junit.Assert.assertTrue;
 
+import au.csiro.ontology.util.Statistics;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -80,16 +81,23 @@ public abstract class AbstractTest {
         
         RF2Importer imp = new RF2Importer(in.getInputs());
         Iterator<Ontology> it = imp.getOntologyVersions(new NullProgressMonitor());
-        
+
         while(it.hasNext()) {
             Ontology ont = it.next();
             if(ont.getVersion().equals(version)) {
+long start = System.currentTimeMillis();
                 System.out.println("Loading axioms");
                 no.loadAxioms(new HashSet<Axiom>((Collection<? extends Axiom>) ont.getStatedAxioms()));
+System.out.println((System.currentTimeMillis() - start));
+start = System.currentTimeMillis();
                 System.out.println("Running classification");
                 no.classify();
+System.out.println((System.currentTimeMillis() - start));
+start = System.currentTimeMillis();
                 System.out.println("Computing taxonomy");
                 no.buildTaxonomy();
+System.out.println((System.currentTimeMillis() - start));
+System.out.println(Statistics.INSTANCE.getStatistics());
                 System.out.println("Done");
                 
                 System.gc();
@@ -393,12 +401,21 @@ public abstract class AbstractTest {
         Iterator<Ontology> it = imp.getOntologyVersions(new NullProgressMonitor());
         Ontology ont = it.next();
         
+long start = System.currentTimeMillis();
         System.out.println("Loading axioms");
         no.loadAxioms(new HashSet<Axiom>(ont.getStatedAxioms()));
+System.out.println((System.currentTimeMillis() - start));
+start = System.currentTimeMillis();
         System.out.println("Running classification");
         no.classify();
+System.out.println((System.currentTimeMillis() - start));
+start = System.currentTimeMillis();
         System.out.println("Computing taxonomy");
+System.out.println((System.currentTimeMillis() - start));
+start = System.currentTimeMillis();
         no.buildTaxonomy();
+System.out.println((System.currentTimeMillis() - start));
+System.out.println(Statistics.INSTANCE.getStatistics());
         System.out.println("Done");
         
         System.out.println("Comparing with canonical ontology");

@@ -6,6 +6,7 @@ package au.csiro.snorocket;
 
 import static org.junit.Assert.assertTrue;
 
+import au.csiro.ontology.util.Statistics;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -204,14 +205,20 @@ public class TestConcurrent {
                 while(it.hasNext()) {
                     Ontology ont = it.next();
                     if(ont.getVersion().equals(version)) {
+long start = System.currentTimeMillis();
                         System.out.println("Loading axioms");
                         no.loadAxioms(new HashSet<Axiom>((Collection<? extends Axiom>) ont.getStatedAxioms()));
+System.out.println((System.currentTimeMillis() - start));
+start = System.currentTimeMillis();
                         System.out.println("Running classification");
                         no.classify();
+System.out.println((System.currentTimeMillis() - start));
+start = System.currentTimeMillis();
                         System.out.println("Computing taxonomy");
                         no.buildTaxonomy();
+System.out.println((System.currentTimeMillis() - start));
                         System.out.println("Done");
-                        
+System.out.println(Statistics.INSTANCE.getStatistics());
                         System.gc();
 
                         RF2Input rf2In = (RF2Input) in.getInputs().get(0);
