@@ -41,7 +41,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-     <ontology-core.version>3.1.2</ontology-core.version>
+     <ontology-core.version>3.2.0</ontology-core.version>
      <snorocket.version>${project.version}</snorocket.version>
   </properties>
 
